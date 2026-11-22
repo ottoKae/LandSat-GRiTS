@@ -32,6 +32,16 @@ __pycache__/
 .env
 .env.*
 !.env.example
+*.local.yaml
+*.local.yml
+*.local.json
+*.local.toml
+*.pem
+*.key
+/.aws/
+/.ssh/
+/.netrc
+/.pypirc
 /.idea/
 /.vscode/
 .DS_Store

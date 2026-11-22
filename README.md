@@ -1,9 +1,9 @@
-# LandSat_GRiTS
+# LandSat-GRiTS
 
-[![CI](https://github.com/ottoKae/LandSat_GRiTS/actions/workflows/ci.yml/badge.svg)](https://github.com/ottoKae/LandSat_GRiTS/actions/workflows/ci.yml)
-[GitHub Releases](https://github.com/ottoKae/LandSat_GRiTS/releases) · [MIT](LICENSE)
+[![CI](https://github.com/ottoKae/LandSat-GRiTS/actions/workflows/ci.yml/badge.svg)](https://github.com/ottoKae/LandSat-GRiTS/actions/workflows/ci.yml)
+[GitHub Releases](https://github.com/ottoKae/LandSat-GRiTS/releases) · [MIT](LICENSE)
 
-**LandSat_GRiTS 将 Landsat Collection 2 影像整理为固定 MGRS 格网上的 Zarr 时间序列。** 仓库沿用 S1-GRiTS 的思路：先确定空间格网，再逐景重投影，按 **`(time, bands, x, y)`** 堆叠。
+**LandSat-GRiTS 将 Landsat Collection 2 影像整理为固定 MGRS 格网上的 Zarr 时间序列。** 仓库沿用 S1-GRiTS 的思路：先确定空间格网，再逐景重投影，按 **`(time, bands, x, y)`** 堆叠。
 
 数据**按传感器族与产品级别分组**，保留对应产品的全部光谱测量波段及质量标志。支持 Landsat 1–5、7–9 的 MSS、TM、ETM+、OLI/TIRS；Landsat 6 未成功入轨，没有影像。默认归档 Level-1（L1），也支持独立归档 Level-2（L2）地表反射率和地表温度。
 

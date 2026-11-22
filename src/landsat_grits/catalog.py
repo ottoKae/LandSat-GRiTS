@@ -43,6 +43,8 @@ _SAS_FIELDS = frozenset(
 _SECRET_FIELDS = frozenset(
     {
         "token", "access_token", "sas_token", "credential", "authorization",
+        "api_key", "api-key", "apikey", "x-api-key", "password", "passwd",
+        "client_secret", "refresh_token", "id_token", "cookie", "set-cookie", "sig",
         "aws_access_key_id", "aws_secret_access_key", "aws_session_token",
         "x-amz-algorithm", "x-amz-credential", "x-amz-date", "x-amz-expires",
         "x-amz-signedheaders", "x-amz-signature", "x-amz-security-token",
@@ -83,8 +85,15 @@ def _unsigned_href(href: str) -> str:
         for key, value in parse_qsl(parsed.query, keep_blank_values=True)
         if key.lower() not in _SAS_FIELDS | _SECRET_FIELDS
     ]
+    fragment = parsed.fragment
+    fragment_fields = parse_qsl(fragment, keep_blank_values=True)
+    if any(key.lower() in _SAS_FIELDS | _SECRET_FIELDS for key, _ in fragment_fields):
+        fragment = urlencode([
+            (key, value) for key, value in fragment_fields
+            if key.lower() not in _SAS_FIELDS | _SECRET_FIELDS
+        ])
     return urlunsplit(
-        (parsed.scheme, parsed.netloc, parsed.path, urlencode(query), parsed.fragment)
+        (parsed.scheme, parsed.netloc.rsplit("@", 1)[-1], parsed.path, urlencode(query), fragment)
     )
 
 

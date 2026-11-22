@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Use the canonical LandSat-GRiTS repository name and links.
+- Remove URL user information, additional authentication fields and credential
+  fragments from persisted source metadata; preserve ordinary resource parameters.
+- Check both release archives for private paths, personal email addresses and
+  common credential formats, and ignore local credential/configuration files.
+
 ## 0.2.0b1 — 2026-10-23
 
 First public beta release.

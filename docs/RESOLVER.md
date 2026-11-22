@@ -1,12 +1,12 @@
 # 可选 GRiTS-Resolver
 
-LandSat_GRiTS 独立负责下载、格网化、逐景 Zarr、轨道读取和单景 GUI。
+LandSat-GRiTS 独立负责下载、格网化、逐景 Zarr、轨道读取和单景 GUI。
 GRiTS-Resolver 是另一份独立软件，读取已提交的 Landsat 归档，提供日／月／年合成显示。
 本仓库没有复制 Resolver，也不会在导入或安装时自动寻找相邻仓库。
 
 ## 安装
 
-在已安装 LandSat_GRiTS 的同一个 Python 3.12 环境中，安装取得的、含光学日合成查看器的
+在已安装 LandSat-GRiTS 的同一个 Python 3.12 环境中，安装取得的、含光学日合成查看器的
 GRiTS-Resolver 0.3.0 源码目录或 wheel：
 
 ```sh

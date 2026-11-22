@@ -372,7 +372,17 @@ def test_direct_append_never_persists_nested_access_credentials(tmp_path, grid):
     item = scene(tmp_path, grid)
     item["links"] = [{"href": "https://example.org/item?sig=secret-sas&keep=scene"}]
     item["assets"]["blue"]["alternate"] = {
-        "signed": {"href": "https://example.org/blue?access_token=secret-token&keep=band"}
+        "signed": {
+            "href": (
+                "https://secret-user:secret-password@example.org/blue"
+                "?access_token=secret-token&API_KEY=secret-key&keep=band"
+                "#access_token=secret-fragment&view=overview"
+            ),
+            "headers": {"Cookie": "secret-cookie", "X-API-Key": "secret-header"},
+            "client_secret": "secret-client",
+            "password": "secret-password",
+            "sig": "secret-signature",
+        }
     }
     item["properties"]["authorization"] = "secret-authorization"
     store = SceneStore(tmp_path / "archive.zarr", PRODUCTS["oli-l2"], grid, chunk=16)
@@ -381,6 +391,7 @@ def test_direct_append_never_persists_nested_access_credentials(tmp_path, grid):
     serialized = (store.provenance / commit["provenance"]).read_text(encoding="utf-8")
     assert "secret-" not in serialized
     assert "keep=scene" in serialized and "keep=band" in serialized
+    assert "view=overview" in serialized
     assert item["properties"]["authorization"] == "secret-authorization"
     assert store.audit()["scenes"] == 1
 

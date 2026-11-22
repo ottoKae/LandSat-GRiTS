@@ -71,5 +71,5 @@ jobs:
           python -c 'import os,tomllib; from pathlib import Path; v=tomllib.loads(Path("pyproject.toml").read_text())["project"]["version"]; assert os.environ["GITHUB_REF_NAME"] == "v"+v'
           (cd dist && sha256sum *.whl *.tar.gz > SHA256SUMS)
           gh release create "$GITHUB_REF_NAME" dist/*.whl dist/*.tar.gz dist/SHA256SUMS \
-            --verify-tag --title "LandSat_GRiTS $GITHUB_REF_NAME" \
+            --verify-tag --title "LandSat-GRiTS $GITHUB_REF_NAME" \
             --notes-file docs/RELEASE_NOTES_v0.2.0b1.md --prerelease --latest=false

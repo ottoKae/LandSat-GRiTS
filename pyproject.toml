@@ -40,9 +40,9 @@ aws = ["boto3>=1.35"]
 landsat-grits = "landsat_grits.cli:main"
 
 [project.urls]
-Repository = "https://github.com/ottoKae/LandSat_GRiTS"
-Issues = "https://github.com/ottoKae/LandSat_GRiTS/issues"
-Releases = "https://github.com/ottoKae/LandSat_GRiTS/releases"
+Repository = "https://github.com/ottoKae/LandSat-GRiTS"
+Issues = "https://github.com/ottoKae/LandSat-GRiTS/issues"
+Releases = "https://github.com/ottoKae/LandSat-GRiTS/releases"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/landsat_grits"]

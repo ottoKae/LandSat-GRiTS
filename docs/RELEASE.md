@@ -3,7 +3,7 @@
 `0.2.0b1` 为单机研究和试用的公开测试版。
 
 源代码采用 MIT，数据来源声明见 [NOTICE](../NOTICE.md)。Landsat 与 Resolver 保持独立分工。
-公开仓库为 https://github.com/ottoKae/LandSat_GRiTS 。推送 main 或版本标签会触发四组 CI。
+公开仓库为 https://github.com/ottoKae/LandSat-GRiTS 。推送 main 或版本标签会触发四组 CI。
 首次 `v0.2.0b1` 标签的四组检查全部通过后，工作流使用同次 CI 构建物自动发布 GitHub 预发行版。
 工作流不自动推送代码、创建标签或上传 PyPI。
 
@@ -21,6 +21,10 @@ uv run python tooling/release/check_artifacts.py .test-tmp/release-dist
 每次构建使用只包含当前版本的新目录。wheel 包含 Python 包、GUI 资源和许可证；
 源码包额外包含测试、示例、说明、发布检查脚本和 `tooling/validation/` 校验工具。
 原始影像、试点目录、运行日志和大型验收材料不进入发布包。
+发布检查还会扫描 wheel 和源码包中的个人路径、个人邮箱及常见密钥格式；
+这不能替代对新增配置、来源记录和 Git 历史的人工检查。提交使用 GitHub noreply 邮箱。
+本地配置建议使用 `*.local.yaml` 等已忽略的文件名；不要提交真实凭据。
+冻结清单和本地来源记录可能包含为续传保留的绝对路径，不应直接作为公开示例上传。
 
 将 wheel 安装到新的虚拟环境后，用该环境的 Python 执行：
 

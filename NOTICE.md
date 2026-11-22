@@ -1,6 +1,6 @@
 # Sources and licensing
 
-LandSat_GRiTS code and original documentation are distributed under the MIT license
+LandSat-GRiTS code and original documentation are distributed under the MIT license
 in `LICENSE`. Copyright is attributed to the project contributors.
 
 Satellite products and third-party grid files are separate inputs. The project's
