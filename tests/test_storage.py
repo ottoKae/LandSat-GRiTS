@@ -394,6 +394,8 @@ def test_direct_append_never_persists_nested_access_credentials(tmp_path, grid):
     assert "view=overview" in serialized
     assert item["properties"]["authorization"] == "secret-authorization"
     assert store.audit()["scenes"] == 1
+    assert store.append(item) is False
+    assert store.append(json.loads(serialized)["item"]) is False
 
 
 def test_previously_read_source_replaced_before_commit_rolls_back(tmp_path, grid, monkeypatch):

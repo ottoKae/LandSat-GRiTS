@@ -9,7 +9,7 @@ import zipfile
 def check_public_text(name, data):
     text = data.decode("utf-8", errors="replace")
     private = re.search(
-        r"(?i)(?:[A-Z]:[\\/](?:Users|Project|QGIS)[\\/]|/(?:home|Users)/[^/\s]+/)",
+        r"(?i)(?:[A-Z]:[\\/]+(?:Users|Project|QGIS)[\\/]+|/(?:home|Users)/[^/\s]+/)",
         text,
     )
     credential = re.search(

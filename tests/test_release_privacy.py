@@ -16,6 +16,7 @@ spec.loader.exec_module(checker)
 
 @pytest.mark.parametrize("content", [
     "C:/" + "Users/example/private",
+    "C:" + "\\\\" + "Users" + "\\\\" + "example" + "\\\\" + "private",
     "D:" + "/Project/example/run",
     "/home/" + "example/private",
     "ghp_" + "A" * 36,
